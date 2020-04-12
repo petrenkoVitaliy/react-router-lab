@@ -1,12 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import App1 from "./App1";
+import App2 from "./App2";
+import { Router, Route, browserHistory } from "react-router";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+export const history = browserHistory;
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(
+  <Router history={history}>
+    <Route path={"/"} component={App1} />
+    <Route path={"/Speaker"} component={App2} />
+  </Router>,
+  document.getElementById("root")
+);
